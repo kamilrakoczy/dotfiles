@@ -1,0 +1,14 @@
+- name: Install sudo
+  pacman:
+    name:
+      - sudo
+- name: Ensure sudoers.d dir exists
+  file: path=/etc/sudoers.d/ state=directory mode=0640
+- name: Copy sudoers
+  copy: src=files/sudoers dest=/etc/sudoers.d/wheel owner=root group=root mode=0640
+- name: Create group grey
+  group: name=grey gid=1000
+- name: Create user grey
+  user: name=grey uid=1000 create_home=true groups="grey,wheel"
+- name: Create user aur
+  user: name=aur uid=2000 create_home=true groups="wheel"

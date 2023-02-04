@@ -1,0 +1,18 @@
+- hosts: localhost
+  collections:
+    - kewlfft.aur
+  tasks:
+    - block:
+      - include: tasks/users.yml
+      when: ansible_user_id == 'root'
+    - name: Update repositories
+      pacman: update_cache=yes
+      become: true
+    - block:
+      - include: tasks/zsh.yml
+      - include: tasks/vim.yml
+      - include: tasks/c-cpp.yml
+      - include: tasks/debug.yml
+      - include: tasks/python.yml
+      - include: tasks/rust.yml
+      - include: tasks/virtual.yml
