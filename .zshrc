@@ -14,6 +14,8 @@ setopt numericglobsort   # Sort filenames numerically when it makes sense
 setopt nobeep            # No beep
 setopt appendhistory     # Append history instead of overwriting
 setopt histignorealldups # Remove duplicate commands
+unsetopt inc_append_history
+unsetopt share_history
 
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # Case insensitive tab completion
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"   # Colored completion (different colors for dirs/files/etc)
