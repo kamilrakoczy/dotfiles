@@ -33,7 +33,7 @@ function M.set()
     vim.o.spelllang = 'en_us,pl'         -- check English and Polish spelling
     vim.o.spell = true
     vim.o.foldenable = false
-    vim.wo.conceallevel = 2
+    vim.wo.conceallevel = 0
     vim.opt.signcolumn = 'yes:3'
 end
 
