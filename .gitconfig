@@ -1,0 +1,7 @@
+[user]
+	name = Kamil Rakoczy
+	email = kamilrakoczy1@gmail.com
+[core]
+	editor = nvim
+[alias]
+	staash = stash --all
