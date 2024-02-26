@@ -192,6 +192,13 @@ return {
 				on_attach = on_attach { autoformat = false },
 			}
 
+            local pid = vim.fn.getpid()
+            lspconfig.omnisharp.setup {
+                cmd = { "omnisharp", "--languageserver" , "--hostPID", tostring(pid) },
+				capabilities = capabilities,
+				on_attach = on_attach { autoformat = false },
+            }
+
 			require 'neodev'.setup {}
 
 			lspconfig.lua_ls.setup {
@@ -220,6 +227,21 @@ return {
 					}
 				},
 			}
+
+            lspconfig.yamlls.setup {
+				capabilities = capabilities,
+				on_attach = on_attach { autoformat = false },
+            }
+
+            lspconfig.bashls.setup {
+				capabilities = capabilities,
+				on_attach = on_attach { autoformat = false },
+            }
+
+            lspconfig.cmake.setup {
+				capabilities = capabilities,
+				on_attach = on_attach { autoformat = false },
+            }
 
 			require 'nvim-lightbulb'.setup { autocmd = { enabled = true } }
 		end,
