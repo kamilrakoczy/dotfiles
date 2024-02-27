@@ -1,6 +1,6 @@
 [user]
 	name = Kamil Rakoczy
-	email = kamilrakoczy1@gmail.com
+	email = krakoczy@antmicro.com
 [core]
 	editor = nvim
 	untrackedcache = true
@@ -12,3 +12,23 @@
 	force-push = push --force-with-lease
 [rerere]
 	enabled = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[diff]
+	tool = vim -d
+[merge]
+	tool = vim -d
+[difftool]
+	prompt = false
+	trustExitCode = true
+[http]
+	cookiefile = /home/grey/.gitcookies
+[pull]
+	ff = only
+[difftool "vimdiff"]
+	cmd = vim -d \"$LOCAL\" \"$REMOTE\"
+[url "git@github.com:"]
+	insteadOf = git://github.com/
